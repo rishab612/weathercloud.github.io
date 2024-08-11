@@ -1,0 +1,273 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    width: 100%;
+    margin: 20px;
+    text-align: center;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#search {
+    width: 60%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#searchButton {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #6c63ff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#searchButton:hover {
+    background-color: #4846d2;
+}
+
+.current-weather {
+    margin-bottom: 20px;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-info img {
+    width: 80px;
+    height: 80px;
+}
+
+.weather-details {
+    margin-bottom: 20px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.forecast {
+    margin-bottom: 20px;
+}
+
+.forecast-cards {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+}
+
+.forecast-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    width: 120px;
+    text-align: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.lifestyle-tips {
+    margin-top: 20px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.radar {
+    margin-top: 20px;
+}
+
+#radarFrame {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .forecast-cards {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .forecast-card {
+        width: 100px;
+    }
+}
+
+#search-container {
+    position: relative;
+    width: 100%; /* Adjust to fit the container width */
+    max-width: 600px; /* Optional: Set a maximum width */
+}
+
+#search {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#suggestions {
+    position: absolute;
+    top: 9%; /* Align to the bottom of the search bar */
+    margin-right: 10px;
+    width: 950px;
+    max-width: 100%; /* Ensure it doesn't exceed the container width */
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 1000;
+    color: black;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none; /* Hide by default */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+    border-radius: 5px; /* Rounded corners */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    list-style: none; /* Remove bullet points */
+}
+
+#suggestions::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+#suggestions::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar */
+    border-radius: 10px; /* Rounded corners of the scrollbar */
+}
+
+#suggestions::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color of the scrollbar on hover */
+}
+
+#suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px; /* Adjust as needed */
+}
+
+#suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+#suggestions li.selected {
+    background-color: #e0e0e0; /* Highlight the selected suggestion */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    #search-container {
+        width: 100%; /* Full width on small screens */
+    }
+
+    #suggestions {
+        width: 100%; /* Full width of the search container */
+    }
+
+    #suggestions li {
+        font-size: 12px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width:   884px) {
+    #search {
+        padding: 8px; /* Smaller padding on very small screens */
+    }
+
+    #suggestions {
+        top: 9%;
+        width: 360px; /* Full width of the search container */
+    }
+
+    #suggestions li {
+        font-size: 10px; /* Further adjust font size for very small screens */
+    }
+}
+
+/* Full-page overlay for watermark */
+#watermark-overlay {
+    position: fixed; /* Cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: rgba(56, 56, 56, 0.5); /* Semi-transparent red text color */
+    font-size: 3rem; /* Adjust size as needed */
+    font-weight: bold;
+    text-align: center;
+    line-height: 100vh; /* Vertically center text */
+    z-index: 9999; /* Ensure it is on top of all content */
+    pointer-events: none; /* Allow interactions with underlying content */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+#watermark-overlay span {
+    display: block;
+    transform: rotate(-30deg); /* Rotate the text for a watermark effect */
+}
+
+/* Footer styling */
+#footer {
+    position: fixed; /* Fixed to the bottom of the page */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem; /* Adjust font size as needed */
+    z-index: 9999; /* Ensure it is on top of all content */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Add shadow for better visibility */
+}
+
+#footer a {
+    color: #ffa500; /* Bright color for links */
+    text-decoration: none;
+}
+
+#footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
